@@ -1,5 +1,5 @@
 inputs:
-  test:
+  sampleInput:
     description: sampleInput
     default: Test value
   nodever:

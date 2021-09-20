@@ -13,7 +13,7 @@ runs:
       script: |
         var fs = require('fs');
         try {
-          fs.mkdirSync('./.github/conditional/tmp');
+          fs.mkdirSync('./.github/conditional/tmp', {recursive: true});
         } catch {
 
         }

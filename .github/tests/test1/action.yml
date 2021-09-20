@@ -1,0 +1,33 @@
+inputs:
+  test:
+    description: sampleInput
+    default: Test value
+  nodever:
+    description: sampleInput
+    default: '16'
+runs:
+  using: composite
+  steps:
+  - uses: actions/cache@v2
+    id: cacheaction
+    key: mycache-${{github.run_id}}
+    path: |
+      ~/cache
+  - uses: ChristopherHX/conditional@974967b3656332cbdef48edb2200b7aad4eb16c4
+    with:
+      if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}
+      step: |
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{inputs.nodever}}
+  - uses: ChristopherHX/conditional@974967b3656332cbdef48edb2200b7aad4eb16c4
+    with:
+      if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}
+      step: |
+        run: |
+          mkdir -p ~/cache
+          echo '${{inputs.sampleInput}}' > ~/cache/tmp.txt
+        shell: bash
+   - run: |
+       cat ~/cache/tmp.txt
+     shell: bash

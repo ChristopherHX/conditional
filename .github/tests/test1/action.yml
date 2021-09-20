@@ -29,6 +29,6 @@ runs:
           mkdir -p ~/cache
           echo '${{inputs.sampleInput}}' > ~/cache/tmp.txt
         shell: bash
-   - run: |
-       cat ~/cache/tmp.txt
-     shell: bash
+  - run: |
+      cat ~/cache/tmp.txt
+    shell: bash

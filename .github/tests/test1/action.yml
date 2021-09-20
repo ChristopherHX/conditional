@@ -14,14 +14,14 @@ runs:
       key: mycache-${{github.run_id}}
       path: |
         ~/cache
-  - uses: ChristopherHX/conditional@974967b3656332cbdef48edb2200b7aad4eb16c4
+  - uses: ChristopherHX/conditional@b4a9649204f81002ec9a4ef7d4bf7d6b2ab7fa55
     with:
       if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}
       step: |
         uses: actions/setup-node@v2
         with:
           node-version: ${{inputs.nodever}}
-  - uses: ChristopherHX/conditional@974967b3656332cbdef48edb2200b7aad4eb16c4
+  - uses: ChristopherHX/conditional@b4a9649204f81002ec9a4ef7d4bf7d6b2ab7fa55
     with:
       if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}
       step: |

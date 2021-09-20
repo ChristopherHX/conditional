@@ -10,9 +10,10 @@ runs:
   steps:
   - uses: actions/cache@v2
     id: cacheaction
-    key: mycache-${{github.run_id}}
-    path: |
-      ~/cache
+    with:
+      key: mycache-${{github.run_id}}
+      path: |
+        ~/cache
   - uses: ChristopherHX/conditional@974967b3656332cbdef48edb2200b7aad4eb16c4
     with:
       if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}

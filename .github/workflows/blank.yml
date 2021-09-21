@@ -18,3 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/tests/test1
+      - run: exit 1
+      - uses: ChristopherHX/conditional@b4a9649204f81002ec9a4ef7d4bf7d6b2ab7fa55
+        if: ${{ failure() && github.event_name == 'push' }}
+        with:
+          step: |
+            uses: ravsamhq/notify-slack-action@v1

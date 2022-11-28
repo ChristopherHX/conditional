@@ -8,7 +8,7 @@ Polyfill missing if of actions/runner
 - Expression syntax will even work on places github wouldn't allow (step property)
 - Pre steps aren't executed, because they won't work with local actions.
 ```yaml
-- uses: ChristopherHX/conditional@b4a9649204f81002ec9a4ef7d4bf7d6b2ab7fa55
+- uses: ChristopherHX/conditional@a675ed4b9377f0f6e385f1c992f4a53de60ec521
   with:
     if: ${{steps.cacheaction.outputs.cache-hit != 'true'}}
     step: |

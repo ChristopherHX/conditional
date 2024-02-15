@@ -10,11 +10,11 @@ jobs:
   test-cache-store:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/tests/test1
   test-cache-restore:
     needs: test-cache-store
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/tests/test1
